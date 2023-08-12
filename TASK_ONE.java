@@ -10,7 +10,7 @@ import java.util.Scanner;
             int a, guess;
             
             System.out.println("-------------------------------GUESS THE NUMBER------------------------------");
-            System.out.println("\nWE HAVE GENERATED A NUMBER AND YOU HAVE TO GUESS IS WITHIN 3 CHANCES TO WIN.");
+            System.out.println("\nWE HAVE GENERATED A NUMBER FROM 1 TO 100.\nYOU HAVE TO GUESS IS WITHIN 3 CHANCES TO WIN.");
             for(a=0;a<chances;a++)
             {
                 System.out.println("GUESS THE NUMBER:-");
