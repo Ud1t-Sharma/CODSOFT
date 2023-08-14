@@ -31,5 +31,10 @@ class TASK_TWO
 
     }
     else if (x ==2)
+    {
+      System.out.println("PROVIDE THE INPUT:-");
+      Scanner lyn = new Scanner(System.in);
+      int 
+    }
   }
 }
