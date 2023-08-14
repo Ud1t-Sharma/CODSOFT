@@ -30,5 +30,6 @@ class TASK_TWO
       System.out.println("TOTAL NUMBER OF SUBJECTS ARE "+a);
 
     }
+    else if (x ==2)
   }
 }
