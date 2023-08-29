@@ -1,42 +1,72 @@
 import java.util.Scanner;
-import java.util.*;
-class TASK_THREE
+import java.util.Objects;
+
+public class  TASK_THREE extends User_Account
 {
-    public static void main(String[]args)
+
+    public void deposit(double amount)
     {
-        Scanner input = new Scanner(System.in);
-        Double balance , withdraw , deposit , Account_number ,PIN , phone_number;
-        String user_name;
-        int user_one = 0 , new_deposit_bal = 0;
-        phone_number = 000000000000 ;
-        new_deposit_bal = 0;
-        while (true)
-        {
-        System.out.println("ENTER 1 TO REGISTER NEW USER.");
-        System.out.println("ENTER 2 TO DEPOSIT MONEY.");
-        int x; 
-        x =input.nextInt();
-        if (x==1)
-        {
-            System.out.println("ENTER NAME OF THE ACCOUNT HOLDER :-");
-            user_name = input.next();
-            System.out.println("ENTER PHONE NUMBER OF THE ACCOUNT HOLDER :-");
-            phone_number = input.nextDouble();
-            phone_number += user_one;
-            System.out.println("SET A PIN FOR YOUR ACCOUNT :-");
-            PIN = input.nextDouble();
-        }
-        else if (x==2)
-        {
-            System.out.println("ENTER YOUR PHONE NUMBER.");
-            if (phone_number == user_one) 
+            balance += amount;
+            System.out.println("AMMOUNT HAS BEEN DEPOSITED\nIT WILL REFLECT IN YOUR ACCOUNT WITHIN AN HOUR.");
+    }
+
+    public void Withdraw(double amount)
+    {
+            if(amount > balance) 
             {
-                System.out.println("ENTER THE AMOUNT YOU WANT TO DEPOSIT.");
-                deposit = input.nextDouble();
-                deposit += new_deposit_bal;
+                System.out.println("YOU DONT HAVE ENOUGH BALANCE IN YOUR BANK.");
             }
+            else 
+            {
+                balance -= amount;
+                System.out.println("WITHDRAWL APPROVED.\nREMOVE YOUR CARD.");
+            }
+    }
+    
+
+    public void checkBalance()
+    {
+        System.out.println("ACCOUNT BALANCE :- " + balance);
+    }
+
+    public static void main(String[] args) {
+
+        TASK_THREE TASK_THREE = new TASK_THREE();
+
+        double amount;
+        int user_choice;
+        String Account_Number , Account_Key;
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Input the account number: ");
+        Account_Number = scanner.nextLine();
+        System.out.println("Input Pin: ");
+        Account_Key = scanner.nextLine();
+
+        while(Objects.equals(Account_Number, TASK_THREE.user_account) && Objects.equals(Account_Key,TASK_THREE.pin)) 
+        {
+            System.out.println("1.DEPOSIT\n2.WITHDRAW\n3.CHECK BALANCE\n4.EXIT");
+            System.out.println("ENTER YOUR CHOICE:- ");
+            user_choice = scanner.nextInt();
+
+            switch (user_choice) 
+            {
+             case 1 -> 
+             {
+             System.out.println("Enter the amount: ");
+             amount = scanner.nextDouble();
+             TASK_THREE.deposit(amount);
+             }
+             case 2 -> 
+             {
+             System.out.println("Enter the Amount: ");
+             amount = scanner.nextDouble();
+             TASK_THREE.Withdraw(amount);
+             }
+             case 3 ->  TASK_THREE.checkBalance();
+             case 4 ->  System.exit(0);
+             default -> System.out.println("------------INVALID OPTION-----------\n--------TRY AGAIN---------");
+             }
         }
-        }
-        
     }
 }
