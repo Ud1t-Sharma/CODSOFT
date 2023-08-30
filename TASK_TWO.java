@@ -12,7 +12,7 @@ class TASK_TWO
     total = input.nextInt();
     max = subject_no*total;
     for(int i = 0 ; i < subject_no; i++){System.out.println("Marks of "+(i+1)+ ")  subject = ");marks = input.nextDouble();total_marks += marks;}
-    percentage = total_marks / subject_no;
+    percentage = total_marks / max *100;
     int q = 0;
     while (q!=4)
     {
